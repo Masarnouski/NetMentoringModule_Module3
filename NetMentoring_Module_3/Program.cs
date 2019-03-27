@@ -10,49 +10,54 @@ namespace NetMentoring_Module_3
     {
         static void Main(string[] args)
         {
-            /*
-             * Task number #1
+           
+            //  Task number #1
+            //string inputString;
+            //while (true)
+            //{
+            //    try
+            //    {
+            //        inputString = Console.ReadLine();
+
+            //        if (string.IsNullOrEmpty(inputString))
+            //        {
+            //            Console.WriteLine("Input string is null or whitespace");
+            //        }
+
+            //        if (inputString == "quit")
+            //            break;
+
+            //        Console.WriteLine(inputString[0]);
+            //    }
+
+            //    catch(Exception e)
+            //    {
+            //        Console.WriteLine(e.Message);
+            //    }
+
+            //}
+
+
+
+            //Here you can test the library
+
+            var typeConverter = new TypeConverter();
             string inputString;
             while (true)
             {
                 try
                 {
                     inputString = Console.ReadLine();
-
-                    if (string.IsNullOrEmpty(inputString))
-                    {
-                        throw new ArgumentException("Input string is null or whitespace");
-                    }
-
                     if (inputString == "quit")
                         break;
-
-                    Console.WriteLine(inputString[0]);
+                    Console.WriteLine(typeConverter.ConvertStringToInt(inputString));
                 }
-
-                catch(Exception e)
+                catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("There is error: " + e.Message);
                 }
-
             }
-            */
 
-
-            //Here you can test the library
-             
-            var typeConverter = new TypeConverter();
-             try
-             {
-                 Console.WriteLine(typeConverter.ConvertStringToInt("-64564"));
-                 Console.ReadLine();
-             }
-             catch (Exception e)
-             {
-                 Console.WriteLine("There is error: " + e.Message);
-                 Console.ReadLine();
-             } 
-             
         }
 
     }

@@ -16,11 +16,15 @@ namespace NetMentoring_Module_3_Task_2
                 throw new ArgumentException("Input string is null or whitespace");
             }
             var number = 0;
-            if (inputString[0] == 45)
+            if (inputString[0] == '-')
             {
                 isNegative = true;
                 inputString = inputString.Remove(0, 1);
-            }
+                if (inputString.Length == 0)
+                {
+                    throw new FormatException("The symbol '-' is not allowed");
+                }
+            }          
             foreach (var symbol in inputString)
             {
                 if (char.IsDigit(symbol))
@@ -29,7 +33,7 @@ namespace NetMentoring_Module_3_Task_2
                 }
                 else
                 {
-                    throw new FormatException();
+                    throw new FormatException($"The symbol '{symbol}' is not allowed");
                 }
             }
             if (isNegative)
@@ -37,10 +41,7 @@ namespace NetMentoring_Module_3_Task_2
                 var result = number * (-1);
                 return result;
             }
-            else
-            {
                 return number;               
-            }
         }
     }
 }
